@@ -2,150 +2,165 @@
 @import compass/layout
 @import compass/css3
 
-
+@import partials/variables
 @import partials/typography
 @import partials/color
+@import partials/corners
 
 .double-option
-	margin: 0 0 60px 0
-	.left
-		.container
-			+box-sizing(border-box)
-			+border-radius(7px)
+	+box-sizing(border-box)
+	@extend .font-embed-1
+	position: relative
+	width: $inside-width
+	margin: $v-gap auto
+	padding: 0
+	.right
+		@extend .section
+		+box-sizing(border-box)
+		+border-radius($corner-radius)
+		@extend .font-helvetica
+		@extend .clearfix
+		position: relative
+		+float-left
+		width: (($inside-width - ($h-gap*2))/3)
+		height: $option-height
+		margin: 0 0 $v-gap 0
+		background: $option-bg
+		border-bottom: 1px solid $option-border
+		border-right: 1px solid $option-border
+		h1
+			position: relative
+			top: ($v-gap/2)
+			left: ($h-gap/2)
+			color: $option-title
+			font-size: 24px
+			font-weight: 100
+			word-spacing: .1em
+			letter-spacing: .05em
+		h3
 			@extend .font-helvetica
 			position: relative
-			+float-left
-			width: 300px
-			height: 200px
-			//margin: 0px auto 30px auto
-			background: #efefef
+			margin: 1em 76px ($v-gap/2) ($h-gap/2)
+			color: $option-text
+			font-size: 12px
+			font-weight: 200
+			line-height: 1.3em
+			//word-spacing: .05em
+			//letter-spacing: .025em
+			//border: 1px solid #000
+		p.link
+			+box-sizing(border-box)
+			+border-radius($corner-radius)
+			position: absolute
+			bottom: ($v-gap/2)
+			left: ($h-gap/2)
+			color: $option-link
+			a
+				display: inline
+				color: $option-link
+				font-size: 11px
+				font-weight: 200
+				text-decoration: none
+				&:hover
+					color: $option-link-hover
+	.left
+		@extend .section
+		+box-sizing(border-box)
+		@extend .font-helvetica
+		position: relative
+		+float-left
+		width: ($inside-width - ((($inside-width - ($h-gap*2))/3) + $h-gap))
+		margin: 0 $h-gap $v-gap 0
+		.breadcrumbs
+			+box-sizing(border-box)
+			+border-radius($corner-radius)
+			width: 100%
+			height: $v-gap
+			margin: 0
+			padding: 3px 0 0 0
+			background: $option-bg
 			border-bottom: 1px solid $line-color
 			border-right: 1px solid $line-color
-			h1
-				position: relative
-				top: 20px
-				left: 26px
-				font-size: 24px
-				font-weight: 100
-				word-spacing: .1em
-				letter-spacing: .05em
-			h3
-				position: relative
-				top: 10px
-				margin: 0 126px 12px 26px
-				color: #777
-				font-size: 12px
-				font-weight: 200
-				line-height: 1.3em
-				//word-spacing: .05em
-				//letter-spacing: .025em
-				//border: 1px solid #000
-			p.link
+			p
 				+box-sizing(border-box)
 				+border-radius(7px)
-				position: absolute
-				bottom: 20px
-				left: 26px
-				color: #fff
+				margin: 0px 0 0 1.3em
+				color: #aaa
 				a
 					display: inline
-					color: $primary-color
 					font-size: 11px
 					font-weight: 200
 					text-decoration: none
 					&:hover
-						color: #aaa
-
-
-
-.double-option
-	+box-sizing(border-box)
-	display: block
-	height: 100%
-	margin: 0 0 30px 0
-	padding: 0
-	.left
-		.container
-			@extend .container-setup
-			//background: $accent-color url("/images/home_left.jpg") no-repeat
-	.right
-		.container
+						color: $primary
+		.content
 			+box-sizing(border-box)
-			@extend .font-embed-1
+			+border-radius(7px)
 			position: relative
-			+float-left
-			width: 629px
-			.breadcrumbs
-				+box-sizing(border-box)
-				+border-radius(7px)
-				width: 629px
-				height: 30px
-				margin: 0px 0 0 29px
-				padding: 4px 0 0 0
-				background: #efefef
+			//top: $v-gap  					// WITH BREADCRUMBS - use this line
+			top: 0px							// WITHOUT BREADCRUMBS - use this line
+			width: 100%
+			margin: 0
+			padding: 0
+			//background: #efefef
+			//border-bottom: 1px solid $line-color
+			//border-right: 1px solid $line-color
+			h1
+				margin: ($v-gap/2) 0 ($v-gap/3) 0
+				padding: 0 3em 0.1em $corner-radius
+				color: $section-headers
+				font-size: 24px
+				font-weight: 100
+				word-spacing: .1em
+				letter-spacing: .05em
 				border-bottom: 1px solid $line-color
-				border-right: 1px solid $line-color
-				p
-					+box-sizing(border-box)
-					+border-radius(7px)
-					margin: 0px 0 0 1.2em
-					color: #aaa
-					a
-						display: inline
-						font-size: 11px
-						font-weight: 200
-						text-decoration: none
-						&:hover
-							color: $primary-color
-			.content
-				+box-sizing(border-box)
+				&:first-child
+					margin-top: 0
+			p
 				position: relative
-				top: 20px
-				width: 629px
-				margin: 0px 0 0 29px
-				padding: 0
-				//background: #efefef
-				//border-bottom: 1px solid $line-color
-				//border-right: 1px solid $line-color
-				//border: 1px solid #900
-				h1
-					display: inline
-					position: relative
-					top: 0px
-					left: 3px
-					margin: 0
-					padding: 0 3em 0 0
-					color: $primary-color
-					font-size: 24px
-					font-weight: 100
-					word-spacing: .1em
-					letter-spacing: .05em
-					border-bottom: 1px solid $line-color
-				p
-					position: relative
-					top: 10px
-					margin: 0 126px 12px 26px
-					color: #777
-					font-size: 12px
-					font-weight: 200
-					line-height: 1.3em
-				.section-spacer
-					height: 15px
+				margin: 0 0 ($v-gap/2) 0
+				padding: 0 0 0 $corner-radius
+				color: $section-text
+				font-size: 12px
+				font-weight: 200
+				line-height: 1.3em
+				a
+					color: $primary-light
+					text-decoration: none
+					&:hover
+						color: $primary
+
 					
-		
+.section
+	+box-sizing(border-box)
+	@extend .clearfix
+	position: relative
+	//margin: 0 auto $v-gap auto
+	
+.contact-form
+	overflow: hidden
+	iframe
+		position: relative
+		top: -50px
+
+
+.clearfix
+	&:before
+		content: "\0020"
+		display: block
+		height: 0
+		overflow: hidden
+	&:after
+		content: "\0020"
+		display: block
+		height: 0
+		overflow: hidden
+		clear: both
+	zoom: 1
+						
 		
 //Inherited Formatting
-.bg-gradient
-	background: $primary-color
-	+linear-gradient(color-stops($secondary-color, $primary-color))
 	
 	
 	
 //Background Images for multiple pages - use ID names
-//PREPARATION
-#prep.left, #na.left, #uk.left, #fr.left
-	.container
-		background: $accent-color url("/images/home_left.jpg") no-repeat
-#prep_right
-	.container
-		background: $accent-color url("/images/prep_right.jpg") no-repeat

@@ -38,14 +38,14 @@
 	+float-left
 	width: (($inside-width - ($h-gap*2))/3)
 	height: $option-height
-	background: #efefef
-	border-bottom: 1px solid $line-color
-	border-right: 1px solid $line-color
+	background: $option-bg
+	border-bottom: 1px solid $option-border
+	border-right: 1px solid $option-border
 	h1
 		position: relative
-		top: 20px
-		left: 26px
-		color: $primary
+		top: ($v-gap/2)
+		left: ($h-gap/2)
+		color: $option-title
 		font-size: 24px
 		font-weight: 100
 		word-spacing: .1em
@@ -53,9 +53,8 @@
 	h3
 		@extend .font-helvetica
 		position: relative
-		top: 10px
-		margin: 0 76px 12px 26px
-		color: $secondary
+		margin: 1em 76px ($v-gap/2) ($h-gap/2)
+		color: $option-text
 		font-size: 12px
 		font-weight: 200
 		line-height: 1.3em
@@ -64,19 +63,19 @@
 		//border: 1px solid #000
 	p.link
 		+box-sizing(border-box)
-		+border-radius(7px)
+		+border-radius($corner-radius)
 		position: absolute
-		bottom: 20px
-		left: 26px
-		color: #fff
+		bottom: ($v-gap/2)
+		left: ($h-gap/2)
+		color: $option-link
 		a
 			display: inline
-			color: $secondary
+			color: $option-link
 			font-size: 11px
 			font-weight: 200
 			text-decoration: none
 			&:hover
-				color: #aaa
+				color: $option-link-hover
 
 	
 	

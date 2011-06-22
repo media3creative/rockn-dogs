@@ -174,8 +174,8 @@
 }
 .container-setup h1, .triple-option .left .container h1, .triple-option .center .container h1, .triple-option .right .container h1 {
   position: relative;
-  top: 20px;
-  left: 26px;
+  top: 15px;
+  left: 15px;
   color: #2360a9;
   font-size: 24px;
   font-weight: 100;
@@ -184,8 +184,7 @@
 }
 .container-setup h3, .triple-option .left .container h3, .triple-option .center .container h3, .triple-option .right .container h3 {
   position: relative;
-  top: 10px;
-  margin: 0 76px 12px 26px;
+  margin: 1em 76px 15px 15px;
   color: #f4762c;
   font-size: 12px;
   font-weight: 200;
@@ -203,9 +202,9 @@
   -khtml-border-radius: 7px;
   border-radius: 7px;
   position: absolute;
-  bottom: 20px;
-  left: 26px;
-  color: white;
+  bottom: 15px;
+  left: 15px;
+  color: #f4762c;
 }
 .container-setup p.link a, .triple-option .left .container p.link a, .triple-option .center .container p.link a, .triple-option .right .container p.link a {
   display: inline;
@@ -215,5 +214,5 @@
   text-decoration: none;
 }
 .container-setup p.link a:hover, .triple-option .left .container p.link a:hover, .triple-option .center .container p.link a:hover, .triple-option .right .container p.link a:hover {
-  color: #aaaaaa;
+  color: #f4762c;
 }
