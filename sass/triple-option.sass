@@ -1,0 +1,85 @@
+@import compass/utilities
+@import compass/layout
+@import compass/css3
+
+@import partials/variables
+@import partials/typography
+@import partials/color
+@import partials/corners
+
+.triple-option
+	@extend .clearfix
+	width: $inside-width
+	height: $option-height
+	margin: 0 auto ($v-gap) auto
+	.left
+		.container
+			@extend .container-setup
+			margin: 0px ($h-gap - 1) $v-gap 0
+			//background: $accent-color url("/images/home_left.jpg") no-repeat
+	.center
+		.container
+			@extend .container-setup
+			margin: 0px ($h-gap - 1) $v-gap 0
+			//background: $accent-color url("/images/home_center.jpg") no-repeat
+	.right
+		.container
+			@extend .container-setup
+			margin: 0px 0 $v-gap 0
+			//background: $accent-color url("/images/home_right.jpg") no-repeat
+
+
+.container-setup
+	+box-sizing(border-box)
+	+border-radius($corner-radius)
+	@extend .font-helvetica
+	@extend .clearfix
+	position: relative
+	+float-left
+	width: (($inside-width - ($h-gap*2))/3)
+	height: $option-height
+	background: #efefef
+	border-bottom: 1px solid $line-color
+	border-right: 1px solid $line-color
+	h1
+		position: relative
+		top: 20px
+		left: 26px
+		color: $primary
+		font-size: 24px
+		font-weight: 100
+		word-spacing: .1em
+		letter-spacing: .05em
+	h3
+		@extend .font-helvetica
+		position: relative
+		top: 10px
+		margin: 0 76px 12px 26px
+		color: $secondary
+		font-size: 12px
+		font-weight: 200
+		line-height: 1.3em
+		//word-spacing: .05em
+		//letter-spacing: .025em
+		//border: 1px solid #000
+	p.link
+		+box-sizing(border-box)
+		+border-radius(7px)
+		position: absolute
+		bottom: 20px
+		left: 26px
+		color: #fff
+		a
+			display: inline
+			color: $secondary
+			font-size: 11px
+			font-weight: 200
+			text-decoration: none
+			&:hover
+				color: #aaa
+
+	
+	
+	
+//Background Images for multiple pages - use ID names
+

@@ -1,0 +1,31 @@
+- @title = "About: Preparation"
+- @body_class = "two"
+
+#prep.image-slider
+  %h1 Thick-sliced roast beef.
+  %h3 Served with rice noodles and steamed vegetables.
+  %h3 Try it with our Signature Steaksauce, made in-house by our head chef.
+  / %p.link
+  /   = link_to "Learn More", "/#" 
+
+.triple-option
+  #prep_left.left
+    .container
+      %h1 Featured Dish
+      %h3 Thick-sliced roast beef with rice noodles and steamed vegetables.
+      %p.link
+        = link_to "Read More  >", "/artists/artist1", :class => "artist-page"
+  #prep_center.center
+    .container
+      %h1 What's cookin'?
+      %h3 We offer a full selection of premium steaks, as well as your seafood and chicken favourites.
+      %p.link
+        = link_to "Explore Our Menu  >", "/artists/artist1", :class => "artist-page"
+  #prep_right.right
+    .container
+      %h1 Location
+      %h3
+        1648 FM 1960 West
+        Houston, TX 77090
+      %p.link
+        = link_to "View Map  >", "http://maps.google.com/maps?q=1648+FM+1960+West+Houston,+TX+77090&um=1&ie=UTF-8&sa=N&hl=en&tab=wl", :class => "artist-page", :target => "_blank"

@@ -1,0 +1,85 @@
+@import compass/utilities
+@import compass/layout
+@import compass/css3
+
+@import partials/variables
+@import partials/typography
+@import partials/color
+@import partials/corners
+
+.image-slider
+	+box-sizing(border-box)
+	+border-radius($corner-radius)
+	@extend .font-embed-1
+	position: relative
+	width: $inside-width
+	height: $slider-height
+	margin: 0px auto $v-gap auto
+	background: $accent
+	border-bottom: 1px solid $line-color
+	border-right: 1px solid $line-color
+	overflow: hidden	
+	img.accent
+		position: absolute
+		widht: 368px
+		height: 367px
+		top: 20px
+		left: 475px	
+	h1
+		+box-sizing(border-box)
+		position: relative
+		top: 110px
+		width: $inside-width	
+		margin: 0 auto
+		padding: .3em 0 .2em 0
+		color: #fff
+		background: $primary
+		opacity: 0.85
+		font-size: 30px
+		font-weight: bold
+		text-align: center
+		word-spacing: .1em
+		letter-spacing: .05em
+		border-bottom: 4px solid #fff
+		&:hover
+			opacity: 0.75
+	h3
+		@extend .font-helvetica
+		@extend .corner-right
+		+box-sizing(border-box)
+		position: relative
+		top: 120px
+		left: 0
+		width: 380px
+		margin: 0 0 6px 0
+		padding: .4em 20px .4em 90px
+		color: #fff
+		background: $secondary
+		opacity: 0.85
+		font-size: 14px
+		font-weight: 200
+		line-height: 1.1em
+		//word-spacing: .05em
+		//letter-spacing: .025em
+		//border: 1px solid #000
+		&:hover
+			opacity: 0.75
+	p.link
+		@extend .bg-gradient
+		+box-sizing(border-box)
+		+border-radius($corner-radius)
+		position: absolute
+		bottom: 30px
+		right: 35px
+		color: #fff	
+		border: 1px solid $primary
+		&:hover
+			@extend .bg-gradient-reverse
+		a
+			display: block
+			padding: 7px 2em 8px 2em
+			color: inherit
+			font-size: 11px
+			font-weight: 200
+			text-decoration: none
+			text-transform: uppercase

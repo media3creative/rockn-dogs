@@ -1,0 +1,31 @@
+- @title = "Home"
+- @subtitle = ""
+- @body_class = "one"
+
+#home.image-slider
+  %h1 Connecting people with opportunities.
+  %h3 Whether you are looking for an investment opportunity or currently own a successful business, we can help you realize your business ownership dreams or turn your business into a franchise.
+  %p.link
+    = link_to "Learn More", "/#" 
+
+.triple-option
+  #home.left
+    .container
+      %h1 Buy a franchise
+      %h3 Our services help you find the perfect franchise for you
+      %p.link
+        = link_to "Read More  >", "/buy"
+  #home.center
+    .container
+      %h1 Expand your business
+      %h3 We can help in the development of a franchise system
+      %p.link
+        = link_to "Discover How  >", "/develop"
+  #home.right
+    .container
+      %h1 Location
+      %h3
+        1648 FM 1960 West
+        Houston, TX 77090
+      %p.link
+        = link_to "View Map  >", "http://maps.google.com/maps?q=1648+FM+1960+West+Houston,+TX+77090&um=1&ie=UTF-8&sa=N&hl=en&tab=wl", :class => "artist-page", :target => "_blank"

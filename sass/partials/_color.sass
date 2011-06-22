@@ -1,0 +1,104 @@
+// COLOR DEFINITIONS
+$primary: #000
+$primary-light: lighten(adjust-hue($primary, 0%), +20)
+$secondary: #c69a3d
+$secondary-light: lighten(adjust-hue($secondary, 0%), +5)
+$accent: #efefef
+
+$line-color: #dadada
+
+$gray-dark: #171717
+$gray-med: #444
+$gray-light: #aaa
+
+$image-slider-bg: $accent
+
+
+
+// COLOR APPLICATION
+$m3c-bg:									$line-color
+$m3c-border:							$gray-light
+$m3c-text:								#aaa
+$m3c-link:								$primary
+$m3c-link-hover:					#fff
+$m3c-link-border:					$line-color
+
+$mast-head-top:						$primary-light
+$mast-head-bottom:				$primary
+$mast-head-border:				$gray-med
+
+$nav-text:								$gray-med
+$nav-text-hover:					#fff
+$nav-lines:								$secondary
+$nav-bg:									transparent
+$nav-dropdown-text:				#999
+$nav-dropdown-hover:			$primary
+$nav-dropdown-bg:					$line-color
+$nav-dropdown-border:			#ccc
+$nav-dropdown-accent:			$secondary
+
+$footer-top:							$accent
+$footer-bottom:						#fff
+$footer-lines:						$line-color
+
+$pageTitle-text:					$accent
+
+$section-headers:					$gray-med
+$section-text:						$gray-light
+$section-lines:						$line-color
+
+
+
+
+// GRADIENTS
+.bg-gradient
+	background: $primary
+	+linear-gradient(color-stops($primary-light, $primary))	
+
+.bg-gradient-reverse
+	background: $primary
+	+linear-gradient(color-stops((lighten($primary-light, 5%)), (lighten($primary, 5%))))
+
+.bg-gradient-dark
+	background: $primary
+	+linear-gradient(color-stops((darken($primary-light, 5%)), (darken($primary, 5%))))
+
+.bg-gradient-left
+	background: $primary
+	+linear-gradient(color-stops($primary, $primary-light), left)
+
+.bg-gradient-secondary
+	background: $secondary
+	+linear-gradient(color-stops($secondary, $secondary-light), left)
+
+
+
+
+
+// OLD STYLE TO BE UPDATED
+
+$primary-color: #000
+$secondary-color: lighten(adjust-hue($primary-color, 0%), +20)
+$accent-color: #c69a3d
+
+$line-color: #dadada
+$gray-dark: #222
+$gray-light: #efefef
+
+$image-slider-bg: #171717
+
+$nav_hover_bg_color: #fff
+$nav_hover_bg_opacity: .9
+
+$content_container_bg_color: $nav_hover_bg_color //#d3313a
+$content_container_bg_opacity: .5
+
+$container-height: 100%
+
+$scrollbar-width: 8px
+$scrollbar-handle-color: #656565
+$scrollbar-handle-up-color: #ddd
+$scrollbar-handle-up-hover-color: #555
+
+$scrollbar-handle-down-color: $scrollbar-handle-up-color
+$scrollbar-handle-down-hover-color: $scrollbar-handle-up-hover-color

@@ -1,0 +1,252 @@
+- @sitename = "Mancera Consulting"
+- @title = ""
+- @subtitle = ""
+
+
+// MAIN NAVIGATION
+- @page1= "Home"
+- @page2= "Franchise Solutions"
+- @page3= "Franchise Development"
+- @page4= "About Us"
+- @page5= "Contact"
+//- @page6= "Testimonials"
+
+// ALT NAV
+
+// FOOTER LINKS
+- @ftColA= "Resources"
+- @ftColA1= "Contact Us"
+- @ftColA2= "Privacy Statement"
+- @ftColA3= "FAQ"
+- @ftColA4= "en Espa&ntilde;ol"
+
+- @ftColB= "Networking"
+- @ftColB1= "Blog"
+- @ftColB2= "twitter"
+- @ftColB3= "Franchise Development Group"
+//- @ftColB4= "#"
+
+/- @ftColC= "Services"
+/- @ftColC1= "link"
+/- @ftColC2= "link"
+/- @ftColC3= "link"
+/- @ftColC4= "link"
+
+
+
+!!! 5
+%html
+  %head
+    %title= @sitename + @title + @subtitle
+
+    %link{:href => "stylesheets/stylesheet.css", :media => "all", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "stylesheets/image-slider.css", :media => "all", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "stylesheets/triple-option.css", :media => "all", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "stylesheets/double-option.css", :media => "all", :rel => "stylesheet", :type => "text/css"}
+
+    %script{:type => "text/javascript", :src => "javascripts/respond.min.js"}
+    %script{:type => "text/javascript", :src => "javascripts/jquery-1.5.min.js"}
+    %script{:type => "text/javascript", :src => "javascripts/modernizr-1.6.min.js"}
+    %script{:type => "text/javascript", :src => "javascripts/application.js"}
+    %script{:type => "text/javascript", :src => "javascripts/jquery.min.js"}
+    %script{:type => "text/javascript", :src => "javascripts/jquery.hoverIntent.minified.js"}
+    :javascript
+      $(document).ready(function() {
+
+
+      	function megaHoverOver(){
+      		$(this).find(".sub").stop().fadeTo('fast', 1).show();
+
+      		//Calculate width of all ul's
+      		(function($) { 
+      			jQuery.fn.calcSubWidth = function() {
+      				rowWidth = 0;
+      				//Calculate row
+      				$(this).find("ul").each(function() {					
+      					rowWidth += $(this).width(); 
+      				});	
+      			};
+      		})(jQuery); 
+
+      		if ( $(this).find(".row").length > 0 ) { //If row exists...
+      			var biggestRow = 0;	
+      			//Calculate each row
+      			$(this).find(".row").each(function() {							   
+      				$(this).calcSubWidth();
+      				//Find biggest row
+      				if(rowWidth > biggestRow) {
+      					biggestRow = rowWidth;
+      				}
+      			});
+      			//Set width
+      			$(this).find(".sub").css({'width' :biggestRow});
+      			$(this).find(".row:last").css({'margin':'0'});
+
+      		} else { //If row does not exist...
+
+      			$(this).calcSubWidth();
+      			//Set Width
+      			$(this).find(".sub").css({'width' : rowWidth});
+
+      		}
+      	}
+
+      	function megaHoverOut(){ 
+      	  $(this).find(".sub").stop().fadeTo('fast', 0, function() {
+      		  $(this).hide(); 
+      	  });
+      	}
+
+
+      	var config = {    
+      		 sensitivity: 2, // number = sensitivity threshold (must be 1 or higher)    
+      		 interval: 100, // number = milliseconds for onMouseOver polling interval    
+      		 over: megaHoverOver, // function = onMouseOver callback (REQUIRED)    
+      		 timeout: 500, // number = milliseconds delay before onMouseOut    
+      		 out: megaHoverOut // function = onMouseOut callback (REQUIRED)    
+      	};
+
+      	$("ul#topnav li .sub").css({'opacity':'0'});
+      	$("ul#topnav li").hoverIntent(config);
+
+
+
+      });
+
+
+
+  
+
+
+  %body{:class => @body_class}
+    #top-banner
+      #mast-header
+        #logo1
+          %a{:href => "/home"}
+            %img{:src => "/images/"+@sitename+"-logo.png", :alt => ""+@sitename+" Logo"}
+        #navigation
+          %ul#topnav
+            %li
+              %a#one.topnav{:href => "/"+@page1}
+                =@page1
+              / .sub
+              /   %ul
+              /     %li
+              /       %h2
+              /         %a{:href => "#"} Header
+              /     %li
+              /       %a{:href => "#"} Navigation Link
+              /     %li
+              /       %a{:href => "#"} Navigation Link
+              /     %li
+              /       %a{:href => "#"} Navigation Link
+              /     %li
+              /       %a{:href => "#"} Navigation Link
+              /     %li
+              /       %a{:href => "#"} Navigation Link
+            %li
+              %a#two.topnav{:href => "/"+@page2}
+                =@page2
+              .sub
+                %ul
+                  / %li
+                  /   %h2
+                  /     %a{:href => "#"} Header
+                  %li
+                    %a{:href => "/2-1"} Services
+                  %li
+                    %a{:href => "/2-2"} Levels of Investment
+                  %li
+                    %a{:href => "/2-3"} Advantages
+                  %li
+                    %a{:href => "/2-1"} Categories
+                  %li
+                    %a{:href => "#"} Financing
+                  %li
+                    %a{:href => "#"} Guide
+                  %li
+                    %a{:href => "#"} Selecting a Franchise
+                  %li
+                    %a{:href => "#"} FAQ
+            %li
+              %a#three.topnav{:href => "/"+@page3}
+                =@page3
+              .sub
+                %ul
+                  / %li
+                  /   %h2
+                  /     %a{:href => "#"} Header
+                  %li
+                    %a{:href => "#"} Services
+                  %li
+                    %a{:href => "#"} Opportunities
+                  %li
+                    %a{:href => "#"} FAQ
+                  / %li
+                  /   %a{:href => "#"} Navigation Link
+                  / %li
+                  /   %a{:href => "#"} Navigation Link
+                  / %li
+                  /   %a{:href => "#"} Navigation Link
+                  / %li
+                  /   %a{:href => "#"} Navigation Link
+            %li
+              %a#four.topnav{:href => "/"+@page4}
+                =@page4
+            %li
+              %a#five.topnav{:href => "/"+@page5}
+                =@page5
+      #alt-nav
+        %ul
+          %li
+            = link_to "Blog", "http://www.blogspot.com/", :class => "link"
+          %li
+            = link_to "twitter", "http://www.twitter.com/", :class => "link"
+          %li
+            = link_to "en Espa&ntilde;ol", "/espanol", :class => "link"
+            
+    .center-container
+      .content
+        = yield
+      #footer
+        &nbsp;
+        .column
+          %h4= @ftColA
+          %a{:href => "#"} 
+            = @ftColA1
+          %a{:href => "#"} 
+            = @ftColA2
+          %a{:href => "#"} 
+            = @ftColA3
+          %a{:href => "#"} 
+            = @ftColA4
+        .column
+          %h4= @ftColB
+          %a{:href => "#"} 
+            = @ftColB1
+          %a{:href => "#"} 
+            = @ftColB2
+          %a{:href => "#"} 
+            = @ftColB3
+          / %a{:href => "#"} 
+          /   = @ftColB4
+        / .column
+        /   %h4= @ftColC
+        /   %a{:href => "#"} 
+        /     = @ftColC1
+        /   %a{:href => "#"} 
+        /     = @ftColC2
+        /   %a{:href => "#"} 
+        /     = @ftColC3
+        /   %a{:href => "#"} 
+        /     = @ftColC4    
+      
+    .m3c-bar
+      .copyright
+        :markdown
+          Copyright &copy; 2011-#{Time.now.year} [#{@sitename}](#). All Rights Reserved.
+      .powered-by
+        :markdown
+          Powered by [Media 3 Creative](http://media3creative.com/)
+
+          
