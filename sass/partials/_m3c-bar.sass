@@ -3,7 +3,7 @@
 
 =m3c-bar
   .m3c-bar
-    @extend .font-helvetica
+    font-family: "EmbedFont-3"
     position: fixed
     left: 0
     bottom: 0
@@ -13,28 +13,26 @@
     color: $m3c-text
     background: $m3c-bg
     font-size: 9px
-    font-weight: 200
+    font-weight: thin
     text-transform: uppercase
     line-height: 1.4em
-    letter-spacing: 1px
+    letter-spacing: 0.5px
     border-top: 1px solid $m3c-border
     z-index: 100
     .copyright
       +float-left
       padding-left: 50px
       margin: 3px 0 0 0
-      color: inherit
     .powered-by
       +float-right
       padding-right: 50px
       margin: 3px 0 0 0
-      color: inherit
     a
       color: $m3c-link
       text-decoration: none
       &:hover
         color: $m3c-link-hover
-        border-bottom: 1px solid $line-color
+        border-bottom: 0px solid $line-color
         text-decoration: none
 
 +m3c-bar

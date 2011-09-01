@@ -1,0 +1,37 @@
+- @title = " | Contact"
+- @subtitle = ""
+- @body_class = "five"
+
+%link{:href => "stylesheets/body-2.css", :media => "all", :rel => "stylesheet", :type => "text/css"}
+
+
+#two.banner
+  .center
+    .content
+      %img.banner{:alt => "", :src => "/images/banner-6.jpg"}
+
+
+
+.body
+  .center
+    .content
+      #five.sidebar.left
+        .text
+          %h1 Contact Us Directly
+          %p 
+            Anna M Jennings
+            %br
+            PO Box 19065
+            %br
+            Houston TX 77224
+            %br
+            %a{:href => "mailto:annaknows@ymail.com"}annaknows@ymail.com
+      
+
+      #five.main
+        .content
+          %a{:name => "anchor1"}
+          .section.no-image
+            %h1 Send Us Your Questions
+            %p.contact-form
+              %iframe.contact{:allowtransparency => "true", :frameborder => "0", :height => "440", :scrolling => "no", :src => "http://media3creative.wufoo.com/embed/s7p0s9/", :width => "100%", :border => "none"}       

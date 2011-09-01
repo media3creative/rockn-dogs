@@ -1,0 +1,65 @@
+@import compass/utilities
+@import compass/layout
+@import compass/css3
+
+@import partials/classes
+@import partials/variables
+@import partials/typography
+@import partials/color
+@import partials/corners
+
+#footer
+	.center
+		@extend .center-container
+		@extend .box
+		@extend .clearfix
+		font-family: "EmbedFont-1"
+		margin: 0 auto
+		padding: ($v-gap / 2) 0 $v-gap
+		border-left: 1px solid $secondary-dark
+		border-right: 1px solid $secondary-dark
+		border-bottom: 1px solid $secondary-dark
+		.content
+			@extent .box
+			@extend .bg-gradient-gray-light
+			@extend .corner-all
+			@extend .clearfix
+			width: $inside-width
+			margin: 0 auto
+			padding: 0
+			height: 100px
+			.row
+				@extend .box
+				position: relative
+				width: $inside-width
+				margin: 3px auto
+				padding: 0
+				background: transparent
+				text-align: center
+				&:last-child
+					border-right: none
+				p
+					font-family: "EmbedFont-1"
+					position: relative
+					margin: 0 0 .5em 0
+					color: $footer-text
+					font-size: 10px
+					font-weight: 200
+					word-spacing: .1em
+					letter-spacing: .05em
+				a
+					font-family: "EmbedFont-1"
+					display: inline
+					margin: 0 0 .3em 0
+					color: $footer-link
+					font-size: 11px
+					font-weight: 200
+					text-decoration: none
+					&:hover
+						color: $footer-link-hover
+					img.icon
+						width: 15px
+						height: 15px
+						margin: -2px 1px 0 7px
+						vertical-align: middle
+					

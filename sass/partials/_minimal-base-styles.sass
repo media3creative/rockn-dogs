@@ -16,11 +16,8 @@ $invalid-box-shadow-color: red
 
 // Links
 a
-  color: $base-link-color
+  color: inherit
   text-decoration: none
-  &:hover
-    color: $base-link-color-hover
-    text-decoration: underline
   &:focus, &:active
     outline: none
 
@@ -156,14 +153,10 @@ button
 
 // You might tweak these
 
-body, select, input, textarea
+select, input, textarea
   // #444 looks better than black: twitter.com/H_FJ/statuses/11800719859
   color: $base-form-text-color
   // Set your base font here, to apply evenly
   font-family: "Helvetica-Neue", Helvetica, Arial, sans-serif
   font-size: $base-font-size
 
-// Bold the headers
-
-h1, h2, h3, h4, h5, h6
-  font-weight: bold

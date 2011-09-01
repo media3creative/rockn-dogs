@@ -1,0 +1,176 @@
+@import compass/utilities
+@import compass/layout
+@import compass/css3
+
+@import partials/classes
+@import partials/variables
+@import partials/typography
+@import partials/color
+@import partials/corners
+
+@import partials/gallery
+
+
+.banner
+	@extend .box
+	position: relative
+	width: 100%
+	margin: 0 auto
+	//background: $image-slider-bg
+	.center
+		@extend .center-container
+		padding: $v-gap 0 ($v-gap/2)
+		.content
+			@extent .box
+			width: $inside-width
+			margin: 0 auto
+			padding: 0
+			img.banner
+				@extend .box
+				@extend .corner-all
+				width: $inside-width
+				height: $banner-height
+				margin: 0
+				padding: 0
+				
+
+
+.body
+	@extend .box
+	@extend .clearfix
+	position: relative
+	width: 100%
+	margin: 0 auto
+	.center
+		@extend .center-container
+		@extend .clearfix
+		padding: ($v-gap/2) 0
+		.content
+			@extent .box
+			width: $inside-width
+			margin: 0 auto
+			padding: 0
+
+
+
+.main
+	@extend .section
+	@extend .box
+	@extend .font-helvetica
+	position: relative
+	+float-left
+	width: $inside-width
+	.content
+		@extend .box
+		position: relative
+		width: $inside-width
+		.section
+			@extend .box
+			@extend .clearfix
+			position: relative
+			padding: 0 0 ($v-gap) 0
+			border-bottom: 1px dotted $section-border
+			&:last-child
+				padding-bottom: 0
+				border-bottom: none
+			img
+				@extend .box
+				@extend .corner-all
+				@extend .bg-gradient-primary
+				+float-left
+				//clear: left
+				//width: $content-img-w
+				//height: $content-img-h
+				margin: 0 ($h-gap / 2) ($v-gap / 2) 0
+				z-index: 100
+			h1
+				@extend .font-helvetica
+				@extend .box
+				width: ($content-width - ($content-img-w + ($h-gap / 2)))
+				margin: $corner-radius 0 ($v-gap/3) ($content-img-w + ($h-gap / 2))
+				padding: 0 3em 0.5em $corner-radius
+				color: $section-title !important
+				font-size: 18px
+				font-weight: 100
+				text-transform: uppercase
+				word-spacing: .1em
+				letter-spacing: .05em
+				border-bottom: 1px solid $section-lines
+			p
+				@extend .font-trebuchet
+				@extend .box
+				//@extend .clearfix
+				width: 100%
+				margin: $corner-radius 0 ($v-gap/3) 0
+				padding: 0 0 0 $corner-radius
+				color: $section-text
+				font-size: 12px
+				font-weight: 200
+				text-align: justify
+				line-height: 1.7em
+				&:last-child
+					margin-bottom: 0
+				a
+					color: $primary-light
+					text-decoration: none
+					&:hover
+						color: $primary
+				img
+					@extend .box
+					position: relative
+					+float-left
+					clear: left
+					width: auto
+					height: auto
+					margin: 0 ($h-gap /2) ($v-gap /2) 0
+					
+
+.container-setup
+	@extend .box
+	@extend .corner-all
+	@extend .clearfix
+	position: relative
+	+float-left
+	clear: both
+	width: $sidebar-width
+	margin: 0 0 $v-gap 0
+	background: $option-bg
+	border: 1px solid $option-border
+	z-index: 20
+
+.columns
+	@extend .clearfix
+	width: 100%
+	.colL
+		position: relative
+		+float-left
+		clear: left
+		width: (($content-width - $h-gap) / 2)
+		margin: 0 $h-gap 0 0
+	.colR
+		position: relative
+		+float-left
+		clear: right
+		width: (($content-width - $h-gap) / 2)
+		margin: 0
+
+
+
+// Needed to add dotted line between page sections
+.spacer
+	@extend .clearfix
+	width: $inside-width
+	margin-bottom: ($v-gap)
+
+
+
+// Re-formats section h1 when no image is used
+.no-image
+	h1, p
+		width: $inside-width
+		margin-left: 0 !important
+		
+// Adds additional formatting for forms that are not imported from _classes.sass		
+.contact-form
+	iframe
+		max-width: 600px

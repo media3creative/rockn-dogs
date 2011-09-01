@@ -1,32 +1,8 @@
-- @title = "Home"
+- @title = " | Home"
 - @subtitle = ""
 - @body_class = "one"
 
-#one.image-slider
-  %h1 Title
-  %h3 Sed ut perspiciatis natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-  %p.link
-    = link_to "Learn More", "/about" 
+%link{:href => "stylesheets/body-1.css", :media => "all", :rel => "stylesheet", :type => "text/css"}
 
-.triple-option
-  #one.left
-    .container
-      %h1 Learn More
-      %h3 Lorem ipsum
-      %p.link
-        = link_to "Read More  >", "/about"
-  #one.center
-    .container
-      %h1 Title
-      %h3 Lorem ipsum. 
-      
-      %p.link
-        = link_to "Discover How  >", "/services"
-  #one.right
-    .container
-      %h1 Location
-      %h3
-        12321  Lorum Ipsum
-        City, State 10101
-      %p.link
-        = link_to "View Map  >", "http://maps.google.com/maps?q=1648+FM+1960+West+Houston,+TX+77090&um=1&ie=UTF-8&sa=N&hl=en&tab=wl", :class => "artist-page", :target => "_blank"
+- content_for :background do
+  #one.bg1

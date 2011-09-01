@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'EmbedFont-1';
+    src: url('/fonts/embedfont-1-webfont.eot');
+    src: url('/fonts/embedfont-1-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/embedfont-1-webfont.woff') format('woff'),
+         url('/fonts/embedfont-1-webfont.ttf') format('truetype'),
+         url('/fonts/embedfont-1-webfont.svg#embedfont-1Medium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}	
+
+@font-face {
+    font-family: 'EmbedFont-2';
+    src: url('/fonts/embedfont-2-webfont.eot');
+    src: url('/fonts/embedfont-2-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/embedfont-2-webfont.woff') format('woff'),
+         url('/fonts/embedfont-2-webfont.ttf') format('truetype'),
+         url('/fonts/embedfont-2-webfont.svg#embedfont-2Medium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'EmbedFont-3';
+    src: url('/fonts/embedfont-3-webfont.eot');
+    src: url('/fonts/embedfont-3-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/embedfont-3-webfont.woff') format('woff'),
+         url('/fonts/embedfont-3-webfont.ttf') format('truetype'),
+         url('/fonts/embedfont-3-webfont.svg#embedfont-3Medium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/* Standard Fonts */
+@font-face {
+    font-family: 'Embed-Helvetica';
+    src: url('/fonts/Helvetica/helveticaneue-webfont.eot');
+    src: url('/fonts/Helvetica/helveticaneue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/Helvetica/helveticaneue-webfont.woff') format('woff'),
+         url('/fonts/Helvetica/helveticaneue-webfont.ttf') format('truetype'),
+         url('/fonts/Helvetica/helveticaneue-webfont.svg#helveticaneueMedium') format('svg');
+    font-weight: 100;
+    font-style: normal;
+
+}

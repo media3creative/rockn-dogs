@@ -1,0 +1,350 @@
+@import compass/utilities
+@import compass/layout
+@import compass/css3
+
+@import partials/classes
+@import partials/variables
+@import partials/typography
+@import partials/color
+@import partials/corners
+
+
+.banner
+	@extend .box
+	position: relative
+	width: 100%
+	margin: 0 auto
+	//background: $image-slider-bg
+	.center
+		@extend .center-container
+		padding: $v-gap 0 ($v-gap/2)
+		border-left: 1px solid $secondary-dark
+		border-right: 1px solid $secondary-dark
+		.content
+			@extent .box
+			width: $inside-width
+			margin: 0 auto
+			padding: 0
+			img.banner
+				@extend .box
+				@extend .corner-all
+				width: $inside-width
+				height: $banner-height
+				margin: 0
+				padding: 0
+				border: 1px solid $image-slider-border	
+				
+
+
+.body
+	@extend .box
+	@extend .clearfix
+	position: relative
+	width: 100%
+	margin: 0 auto
+	.center
+		@extend .center-container
+		@extend .clearfix
+		padding: ($v-gap/2) 0
+		border-left: 1px solid $secondary-dark
+		border-right: 1px solid $secondary-dark
+		.content
+			@extent .box
+			width: $inside-width
+			margin: 0 auto
+			padding: 0
+
+// Formatting for all sidebar boxes
+.sidebar
+	@extend .box
+	@extend .clearfix
+	position: relative
+	clear: none
+	width: $sidebar-width
+	
+.sidebar.left
+	+float-left
+	margin: 0 $h-gap $v-gap 0
+
+.sidebar.right
+	+float-right
+	margin: 0 0 $v-gap $h-gap
+	
+
+// Subnavigation-style sidebar box
+.subnav, .text, .button, .form
+	@extend .container-setup
+	h1
+		@extend .box
+		@extend .corner-top
+		@extend .font-helvetica
+		position: relative
+		color: $option-title
+		background: $option-title-bg
+		width: ($option-width - ($h-gap *2))
+		margin: 0 auto
+		padding: 1em 0
+		font-size: 18px
+		font-weight: bold
+		text-align: left
+	h3
+		@extend .box
+		@extend .corner-top
+		font-family: "EmbedFont-1"
+		position: relative
+		color: $option-title
+		background: $option-title-bg
+		width: ($option-width - ($h-gap *2))
+		margin: 0 auto ($v-gap / 2)
+		padding: 0
+		font-size: 12px
+		font-weight: bold
+		text-transform: none
+		text-align: left
+
+.link
+	@extend .clearfix
+	font-family: "EmbedFont-1"
+	@extend .box
+	position: relative
+	width: ($option-width - ($h-gap *2))
+	margin: 0 auto
+	padding: 0.5em 0
+	font-size: 11px
+	border-bottom: 1px dotted $line-color
+	&:last-child
+		border-bottom: none
+		margin-bottom: ($v-gap / 2)
+	h5
+		@extend .corner-all
+		display: block
+		position: relative
+		+float-left
+		clear: left
+		top: 5px
+		width: 7px
+		height: 7px
+		background: $secondary
+		font-size: 11px
+		text-align: center
+	p
+		@extend .box
+		display: block
+		+float-left
+		clear: right
+		width: 200px
+		margin: 0
+		padding: 0 0 0 1em
+		font-size: 12px
+		a
+			font-size: 12px
+			color: $option-link
+			&:hover
+				color: $option-link-hover
+				text-decoration: none
+					
+// Text-style sidebar box
+.text
+	p
+		font-family: "EmbedFont-1"
+		@extend .box
+		width: ($option-width - ($h-gap *2))
+		margin: 0 auto ($v-gap / 2)
+		padding: 0
+		color: $option-text
+		font-size: 12px
+		font-weight: 200
+		text-align: justify
+		line-height: 1.7em
+		&:last-child
+			margin-bottom: ($v-gap / 2)
+
+// Button-style sidebar box
+.button
+	p.link
+		@extend .bg-gradient-secondary
+		@extend .box
+		//@extend .corner-all
+		+border-radius(7px)
+		border-top-right-radius: 7px
+		border-top-left-radius: 7px
+		border-bottom-right-radius: 7px
+		border-bottom-left-radius: 7px
+		position: relative
+		width: ($sidebar-width - (($h-gap - $corner-radius) * 2))
+		margin: 0 auto ($v-gap / 2)
+		padding: 0
+		color: #fff
+		text-align: center
+		border: 1px solid $primary
+		&:hover
+			@extend .bg-gradient-secondary
+		a
+			display: block
+			margin: 0
+			padding: 6px 2em 7px 2em
+			color: #fff
+			font-size: 11px
+			font-weight: 200
+			text-transform: uppercase
+			text-decoration: none
+
+// Button-style sidebar box
+.form
+	@extend .contact-form
+	iframe
+		width: ($option-width - ($h-gap * 2))
+		margin: 0 ($h-gap)
+
+.main
+	@extend .section
+	@extend .box
+	@extend .font-helvetica
+	position: relative
+	+float-left
+	width: $content-width
+	.content
+		@extend .box
+		position: relative
+		width: $content-width !important
+		.section
+			@extend .box
+			@extend .clearfix
+			position: relative
+			padding: 0 0 ($v-gap) 0
+			border-bottom: 1px dotted $section-border
+			&:last-child
+				padding-bottom: 0
+				border-bottom: none
+			img
+				@extend .box
+				@extend .corner-all
+				@extend .bg-gradient-primary
+				+float-left
+				clear: left
+				width: $content-img-w
+				height: $content-img-h
+				margin: 0 ($h-gap / 2) ($v-gap / 2) 0
+				z-index: 100
+			h1
+				@extend .font-Helvetica
+				@extend .box
+				width: ($content-width - ($content-img-w + ($h-gap / 2)))
+				margin: $corner-radius 0 ($v-gap/3) ($content-img-w + ($h-gap / 2))
+				padding: 0 3em 0.5em $corner-radius
+				color: $section-title !important
+				font-size: 22px
+				font-weight: bolder
+				word-spacing: .1em
+				letter-spacing: -0.05em
+				border-bottom: 1px solid $section-lines
+			h4
+				@extend .font-base
+				@extend .box
+				width: ($content-width)
+				margin: ($v-gap/2) 0 0 0
+				padding: 0 0 0 $corner-radius
+				color: $secondary
+				font-size: 13px
+				font-weight: bold
+				text-align: justify
+				line-height: 1.2em
+			p
+				@extend .font-base
+				@extend .box
+				width: ($content-width)
+				margin: $corner-radius 0 ($v-gap/3) 0
+				padding: 0 0 0 $corner-radius
+				color: $section-text
+				font-size: 12px
+				font-weight: 200
+				text-align: justify
+				line-height: 1.7em
+				&:last-child
+					margin-bottom: 0
+				a
+					color: $primary-light
+					text-decoration: none
+					&:hover
+						color: $primary
+
+table#services
+	@extend .box
+	border-collapse: none !important
+	border: 1px solid $primary
+	margin: $v-gap 0
+	tr, td
+		@extend .font-base
+		@extend .box
+		padding: .5em
+		color: $section-text
+		font-size: 12px
+		font-weight: 200
+		text-align: center
+		line-height: 1.7em
+	tr.header td
+		font-size: 115%
+		font-weight: bold
+		color: #fff
+		background: $primary-light
+		border: 1px solid transparent
+		border-bottom: 1px solid $line-color
+	tr:hover
+		background: #efefef
+	td.blank
+		background: transparent !important
+	td.type
+		min-width: 150px
+		text-align: left
+	td
+		border: 1px solid $line-color
+	td.n
+		background: url(/images/x.png) center center no-repeat
+	td.y
+		background: url(/images/v.png) center center no-repeat
+.container-setup
+	@extend .box
+	@extend .corner-all
+	@extend .clearfix
+	@extend .bg-gradient-primary
+	position: relative
+	+float-left
+	clear: both
+	width: $sidebar-width
+	margin: 0 0 $v-gap 0
+	//background: $option-bg
+	border: 1px solid $option-border
+	z-index: 20
+
+.columns
+	@extend .clearfix
+	width: 100%
+	.colL
+		position: relative
+		+float-left
+		clear: left
+		width: (($content-width - $h-gap) / 2)
+		margin: 0 $h-gap 0 0
+	.colR
+		position: relative
+		+float-left
+		clear: right
+		width: (($content-width - $h-gap) / 2)
+		margin: 0
+
+
+
+// Needed to add dotted line between page sections
+.spacer
+	@extend .clearfix
+	width: $content-width
+	margin-bottom: ($v-gap)
+
+
+
+// Re-formats section h1 when no image is used
+.no-image
+	h1, p
+		width: $content-width !important
+		margin-left: 0 !important
+

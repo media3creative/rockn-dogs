@@ -5,187 +5,130 @@
 @import landscape
 @import mobile-480
 @import partials/m3c-bar
-@import partials/navmenu
-
-@import partials/variables
-@import partials/typography
-@import partials/color
-@import partials/corners
+//@import partials/navmenu
 
 // Media queries for responsive design
 // These follow after primary styles so they will successfully override
 
 @media all and (orientation:portrait)
-  +portrait
+	+portrait
 
 @media all and (orientation:landscape)
-  +landscape
+	+landscape
 
 // Grade-A Mobile Browsers (Opera Mobile, Mobile Safari, Android Chrome)
 @media screen and (max-device-width: 480px)
-  +mobile-480
-  // Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you: j.mp/textsizeadjust
-  // html
-  //   -webkit-text-size-adjust: none
-  //   -ms-text-size-adjust: none
+	+mobile-480
+
 
 html
-  background: #fff
-  margin: 0
-  padding: 0
+	margin: 0
+	padding: 0
+	//background: $html-bg
 
 body
-  margin: 0
-  padding: 0
-  background: #fff
+	//@extend .bg-gradient-primary
+	margin: 0
+	padding: 0
+	//background: $body-bg
 
-#top-banner
-  +box-sizing(border-box)
-  @extend .bg-gradient
-  width: 100%
-  height: $mast-head-height
-  margin: 0
-  padding: 0
-  color: #FFF
-  border-bottom: 2px solid $mast-head-border
-#mast-header
-  @extend .bg-gradient
-  +box-sizing(border-box)
-  position: relative
-  width: $center-width
-  height: $mast-head-height
-  margin: 0 auto
-  padding: 0
-  color: #FFF
-  border-bottom: 2px solid $mast-head-border
-  #logo1
-    +box-sizing(border-box)
-    position: absolute
-    top: (($mast-head-height - $logoH)/2)
-    left: (5px + $h-gap)	
-    margin: 0
-    //border: 1px solid #aaa
-    a
-      display: block
-      width: $logoW
-      height: $logoH
-      margin: 0
-      padding: 0
-      &:hover
-        opacity: 0.8
-        filter: alpha(opacity=80)
-      img
-        margin: 0
-        padding: 0
-        border: 0
-        background: transparent
-  #navigation
-    @extend .font-embed-1-1
-    position: relative
-    width: 100%
-    margin: 0
-    padding: 0
-    top: 20px
-    color: #fff
-    // SEE partials/_navmenu FOR NAVMENU STYLING
-
-
-.center-container
-  width: $center-width
-  margin: 0 auto
-  padding: 0
-  background: #fff
+#one.bg1
+	position: fixed
+	top: 0px
+	left: 0px
+	width: 100%
+	height: 100%
+	background: url(/images/bg.jpg) no-repeat top center scroll
+	-webkit-background-size: cover
+	-moz-background-size: cover
+	-o-background-size: cover
+	background-size: cover
 
 .content
-  +box-sizing(border-box)
-  position: relative
-  width: 100%
-  margin: 0 0 $v-gap 0
-  padding: $v-gap 1px 0 1px
-  background: #fff
+	@extend .box
+	position: relative
+	width: 100%
+	margin: 0
+	padding: 0
+	.top
+		@extend .box
+		@extend .corner-all
+		position: relative
+		width: 1100px
+		margin: 75px auto 0
+		padding: 0 30px 0px 30px
+		.left
+			position: relative
+			width: 350px
+			height: 400px
+			top: 0
+			left: 0
+			background: url(/images/bg-left.png) 0 0 no-repeat
+			z-index: 33
+			&:hover
+				background: url(/images/bg-left.png) 0 bottom no-repeat
+		.logo
+			position: absolute
+			width: 400px
+			height: 400px
+			top: 0
+			left: 330px
+			z-index: 44
+		.right
+			position: absolute
+			width: 450px
+			height: 400px
+			top: 0
+			left: 620px
+			background: transparent
+			z-index: 33
+			p
+				text-indent: -9999px
+				a
+					display: block
+					width: 450px
+					height: 133px
+			.phone
+				width: 450px
+				height: 133px
+				background: url(/images/bg-phone.png) 0 0 no-repeat
+				&:hover
+					background: url(/images/bg-phone.png) 0 bottom no-repeat
+			.mail
+				width: 450px
+				height: 133px
+				background: url(/images/bg-mail.png) 0 0 no-repeat
+				&:hover
+					background: url(/images/bg-mail.png) 0 bottom no-repeat
+			.facebook
+				width: 450px
+				height: 133px
+				background: url(/images/bg-facebook.png) 0 0 no-repeat
+				&:hover
+					background: url(/images/bg-facebook.png) 0 bottom no-repeat
+	.bottom
+		@extend .box
+		position: relative
+		width: 530px
+		height: 100px
+		margin: 0 auto
+		background: url(/images/bg-bottom.png) 0 bottom no-repeat
+		&:hover
+			background: url(/images/bg-bottom.png) 0 0 no-repeat
+		a
+			display: block
+			width: 500px
+			height: 100px
 
-// FIXED FOOTER FORMATTING FOR CLEARING DOUBLE-OPTION
-#footer
-  +box-sizing(border-box)
-  +border-radius($corner-radius)
-  background: $accent
-  +linear-gradient(color-stops($accent, #fff))
-  @extend .font-embed-1
-  display: block
-  position: relative
-  bottom: 0px
-  clear: both	
-  width: $inside-width
-  height: 100px
-  margin: $v-gap auto ($v-gap*2) auto
-  padding: 0
-  //border-right: 1px solid $line-color
-
-#footer .column
-  +box-sizing(border-box)
-  @extend .font-helvetica
-  position: relative
-  +float-left
-  width: 150px
-  min-height: 80px 
-  margin: 10px 0 24px 24px
-  padding: 0 15px 15px 0
-  background: transparent
-  border-right: 1px solid $footer-lines
-  h4
-    position: relative
-    margin: 0 0 .5em 0
-    color: $section-headers
-    font-size: 10px
-    font-weight: 400
-    word-spacing: .1em
-    letter-spacing: .05em
-  a
-    display: block
-    margin: 0 0 .3em 0
-    color: $section-text
-    font-size: 10px
-    font-weight: 200
-    text-decoration: none
-    &:hover
-      color: $primary
-		
-//Navigation Active Classes
-body.one a#one, body.two a#two, body.five a#five, body.four a#four, body.three a#three
-  @extend .navigation-hover
-
-
-#alt-nav
-  @extend .corner-bottom
-  position: absolute
-  top: 0
-  right: $h-gap
-  width: 200px
-  height: 20px	
-  color: $nav-dropdown-text
-  background: $gray-med
-  border-top: 2px solid $nav-dropdown-accent
-  ul
-    position: relative
-    margin: 0 auto
-    padding: 0
-    text-align: center
-    li
-      display: inline
-  a
-    margin: 3px 0.7em
-    font-size: 11px
-    &:hover
-      color: $nav-dropdown-accent
-      text-decoration: none
-
-
-
-//	//Inherited Formatting
-
-p
-  font-size: inherit
-  color: inherit
-
-.navigation-hover
-  color: #fff
+// INHERITED FORMATTING
+.text
+	width: 100%
+	font-weight: 200
+	text-align: center
+	
+	
+img.icon
+	width: 15px
+	height: 15px
+	margin: -3px 1px 0 0
+	vertical-align: middle

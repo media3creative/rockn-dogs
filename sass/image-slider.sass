@@ -2,94 +2,243 @@
 @import compass/layout
 @import compass/css3
 
+@import partials/classes
 @import partials/variables
 @import partials/typography
 @import partials/color
 @import partials/corners
 
 .image-slider
-	+box-sizing(border-box)
-	+border-radius($corner-radius)
-	@extend .font-embed-1
+	@extend .box
+	position: relative
+	width: 100%
+	margin: 0 auto
+	//background: $image-slider-bg
+	.center
+		@extend .center-container
+		padding: $v-gap 0 ($v-gap/2)
+		border-left: 1px solid $secondary-dark
+		border-right: 1px solid $secondary-dark
+		.captionContainer
+			@extend .box
+			position: absolute
+			width: $inside-width
+			//height: 80px
+			top: 200px
+			left: 0
+			margin: 0
+			padding: 5px
+			background: $secondary
+			h1
+				@extend .box
+				@extend .font-Helvetica
+				margin: 5px 15px
+				padding: 0
+				color: $image-slider-title
+				//opacity: 0.85
+				font-size: 30px
+				font-weight: bolder
+				text-align: left
+				line-height: 1em
+				word-spacing: .1em
+				letter-spacing: -0.05em
+			h3
+				@extend .font-base
+				//@extend .corner-right
+				@extend .box
+				position: relative
+				top: 0px
+				margin: 0 15px 10px
+				padding: 0
+				color: $gray-light
+				//background: $secondary
+				//opacity: 0.85
+				font-size: 14px
+				font-weight: 200
+				text-align: left
+				line-height: 1.1em
+				//word-spacing: .05em
+				//letter-spacing: .025em
+				//border: 1px solid #000
+				&:hover
+					//opacity: 0.75
+			p.link
+				@extend .bg-gradient-primary
+				@extend .box
+				@extend .corner-all
+				position: absolute
+				bottom: ($v-gap/2)
+				right: $h-gap
+				color: $image-slider-link	
+				border: 1px solid $primary
+				&:hover
+					@extend .bg-gradient-reverse
+				a
+					font-family: "EmbedFont-1"
+					display: block
+					padding: 9px 2em 8px 2em
+					color: inherit
+					font-size: 11px
+					font-weight: 200
+					text-decoration: none
+					text-transform: uppercase
+			
+	
+	
+//NIVO SLIDER
+// The Nivo Slider styles //
+.nivoSlider
+	@extend .box
+	@extend .corner-all
 	position: relative
 	width: $inside-width
 	height: $slider-height
-	margin: 0px auto $v-gap auto
-	background: $accent
-	border-bottom: 1px solid $line-color
-	border-right: 1px solid $line-color
-	overflow: hidden	
-	img.accent
-		position: absolute
-		widht: 368px
-		height: 367px
-		top: 20px
-		left: 475px	
-	h1
-		+box-sizing(border-box)
-		position: relative
-		top: 110px
-		width: $inside-width	
-		margin: 0 auto
-		padding: .3em 0 .2em 0
-		color: #fff
-		background: $primary
-		opacity: 0.85
-		font-size: 30px
-		font-weight: bold
-		text-align: center
-		word-spacing: .1em
-		letter-spacing: .05em
-		border-bottom: 4px solid #fff
-		&:hover
-			opacity: 0.75
-	h3
-		@extend .font-helvetica
-		@extend .corner-right
-		+box-sizing(border-box)
-		position: relative
-		top: 120px
-		left: 0
-		width: 380px
-		margin: 0 0 6px 0
-		padding: .4em 20px .4em 90px
-		color: #fff
-		background: $secondary
-		opacity: 0.85
-		font-size: 14px
-		font-weight: 200
-		line-height: 1.1em
-		//word-spacing: .05em
-		//letter-spacing: .025em
-		//border: 1px solid #000
-		&:hover
-			opacity: 0.75
-	p.link
-		@extend .bg-gradient
-		+box-sizing(border-box)
-		+border-radius($corner-radius)
-		position: absolute
-		bottom: 30px
-		right: 35px
-		color: #fff	
-		border: 1px solid $primary
-		&:hover
-			@extend .bg-gradient-reverse
-		a
-			display: block
-			padding: 8px 2em 6px 2em
-			color: inherit
-			font-size: 11px
-			font-weight: 200
-			text-decoration: none
-			text-transform: uppercase
-#one.image-slider
-	background: #fff url("/images/banner-1.jpg") no-repeat
-#two.image-slider
-	background: #fff url("/images/banner-2.jpg") no-repeat
-#three.image-slider
-	background: #fff url("/images/banner-3.jpg") no-repeat
-#four.image-slider
-	background: #fff url("/images/banner-4.jpg") no-repeat
-#five.image-slider
-	background: #fff url("/images/banner-5.jpg") no-repeat
+
+.nivoSlider img 
+	@extend .box
+	@extend .corner-bottom
+	position: absolute
+	top: 0px
+	left: 0px
+	width: $inside-width
+	height: $slider-height
+
+// If an image is wrapped in a link //
+.nivoSlider a.nivo-imageLink 
+	position: absolute
+	top: 0px
+	left: 0px
+	width: 100%
+	height: 100%
+	border: 0
+	padding: 0
+	margin: 0
+	z-index: 6
+	display: none
+
+// The slices and boxes in the Slider //
+.nivo-slice 
+	display: block
+	position: absolute
+	z-index: 5
+	height: 100%
+
+.nivo-box 
+	display: block
+	position: absolute
+	z-index: 5
+
+// Caption styles //
+.nivo-caption 
+	position: absolute
+	left: 0px
+	top: 0px
+	background: transparent
+	color: #000
+	opacity: 0.8 // Overridden by captionOpacity setting //
+	width: 100%
+	z-index: 8
+
+.nivo-caption p 
+	padding: 5px
+	margin: 0
+
+.nivo-caption a 
+	display: inline !important
+
+.nivo-html-caption 
+	display: none
+
+// Direction nav styles (e.g. Next & Prev) //
+.nivo-directionNav
+	width: $inside-width
+	margin: 0
+	padding: 0
+	
+.nivo-directionNav a 
+	position: absolute
+	top: 79%
+	z-index: 9
+	cursor: pointer
+	display: block
+	width: 30px
+	height: 30px
+	background: url(/images/nivo/arrows.png) no-repeat
+	text-indent: -9999px
+	border: 0
+
+a.nivo-prevNav 
+	right: ($h-gap + 25px)
+
+a.nivo-nextNav 
+	right: ($h-gap - 15px)
+	background-position: -30px 0
+
+
+// Control nav styles (e.g. 1,2,3...) //
+.nivo-controlNav a 
+	position: relative
+	z-index: 9
+	cursor: pointer
+
+.nivo-controlNav a.active 
+	font-weight: bold
+
+#slider-wrapper 
+	@extend .box
+	@extend .corner-all
+	@extend .font-helvetica
+	position: relative
+	width: $inside-width
+	height: $slider-height
+	margin: 0 auto
+	overflow: hidden
+	border: 1px solid $image-slider-border	
+	background: $image-slider-bg
+
+#slider
+	@extend .box
+	@extend .corner-all
+	position: relative
+	width: $inside-width
+	height: $slider-height
+
+#slider img 
+	position: absolute
+	top: 0px
+	left: 0px
+	display: none
+
+#slider a 
+	border: 0
+	display: block
+
+.nivo-controlNav 
+	position: absolute
+	left: 260px
+	bottom: -42px
+
+.nivo-controlNav a 
+	display: block
+	width: 22px
+	height: 22px
+	background: url(/images/nivo/bullets.png) no-repeat
+	text-indent: -9999px
+	border: 0
+	margin-right: 3px
+	float: left
+
+.nivo-controlNav a.active 
+	background-position: 0 -22px
+
+.nivo-caption
+	position: absolute
+	top: 0
+	height: $slider-height
+	
+.nivo-caption 
+	text-shadow: none
+
+.nivo-caption a  
+	color: #efe9d1
+	text-decoration: underline

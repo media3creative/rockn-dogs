@@ -6,7 +6,6 @@ gem 'serve'
 require 'serve'
 require 'serve/rack'
 
-
 require 'compass'
 
 # The project root directory
@@ -16,7 +15,6 @@ root = ::File.dirname(__FILE__)
 Compass.add_project_configuration(root + '/config.rb')
 Compass.configure_sass_plugin!
 require 'sass/plugin/rack'
-
 
 # Rack Middleware
 use Rack::ShowStatus      # Nice looking 404s and other messages

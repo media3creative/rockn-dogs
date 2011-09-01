@@ -10,9 +10,3 @@ gem "grid-coordinates", ">= 1.1.3"
 gem "meyer-reset", ">= 2.0.0"
 
 gem "maruku", ">= 0.6.0"
-
-gem "haml", ">=3.1"
-
-gem "sass", ">=3.1"
-
-gem "compass"

@@ -1,0 +1,18 @@
+body {
+	position: relative;
+	text-align: center;
+}
+
+.center-container {
+	position: relative; !important
+	text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+	text-align: left; !important
+}
+
+.m3c-bar p {
+	color: #fff;
+	font-size: 9px !important
+}

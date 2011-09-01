@@ -1,9 +1,18 @@
+@import compass/utilities
+@import compass/layout
+@import compass/css3
+
 // COLOR DEFINITIONS
-$primary: #000
+$primary: #552813
 $primary-light: lighten(adjust-hue($primary, 0%), +20)
-$secondary: #fff
-$secondary-light: lighten(adjust-hue($secondary, 0%), +5)
-$accent: #efefef
+//$primary-light: #
+$primary-dark: #d05c21
+$secondary: #e76625
+$secondary-light: lighten(adjust-hue($secondary, 0%), +10)
+//$secondary-light: #
+$secondary-dark: darken($secondary, +5)
+$accent: #fff4e2
+$apple-highlight:	#eee
 
 $line-color: #dadada
 
@@ -11,21 +20,21 @@ $gray-dark: #171717
 $gray-med: #aaa
 $gray-light: #aaa
 
-$image-slider-bg: $accent
-
-
 
 // COLOR APPLICATION
-$m3c-bg:									$primary
-$m3c-border:							$gray-med
-$m3c-text:								$gray-med
-$m3c-link:								#fff
-$m3c-link-hover:					$gray-med
-$m3c-link-border:					#fff
+$html-bg:									transparent
+$body-bg:									$html-bg
+$center-container-bg:			#fff
 
-$mast-head-top:						$primary-light
-$mast-head-bottom:				$primary
-$mast-head-border:				$gray-med
+$text-dark:								$gray-med
+$text-light:							#fff
+$text-highlight:					$accent
+
+$header-title:						#fff
+$header-text:							#fff
+$header-link:							$secondary
+$header-link-hover:				#000
+$header-border:						$primary-dark
 
 $nav-text:								$gray-med
 $nav-text-hover:					$secondary
@@ -34,80 +43,84 @@ $nav-bg:									transparent
 $nav-dropdown-text:				#999
 $nav-dropdown-hover:			$primary
 $nav-dropdown-bg:					$line-color
+$nav-dropdown-bg-hover:		$primary-light
 $nav-dropdown-border:			#ccc
 $nav-dropdown-accent:			$secondary
 
-$footer-top:							$accent
-$footer-bottom:						#fff
-$footer-lines:						$line-color
+$image-slider-bg:					$gray-light
+$image-slider-title:			$primary-light
+$image-slider-text: 			$gray-dark
+$image-slider-link:				#fff
+$image-slider-link-hover:	#fff
+$image-slider-border:			$line-color
 
-$pageTitle-text:					$accent
-
-$section-headers:					$primary
+$section-title:						$primary
 $section-text:						$gray-light
 $section-lines:						$line-color
+$section-border:					$accent
 
-$option-title:						$primary
-$option-text:							$secondary
+$option-title:						#fff
+$option-title-bg:					transparent
+$option-text:							$text-light
 $option-link:							$secondary
-$option-link-hover:				$secondary
-$option-bg:								$accent
-$option-border:						$line-color
-$option-hover-opacity:		0.85
-$option-hover-opacity-pc:	($option-hover-opacity*100)			// DO NOT CHANGE, IS UPDATED BY LINE ABOVE
+$option-link-hover:				$secondary-light
+$option-bg:								$gray-light
+$option-border:						$primary-dark
+
+$footer-title:						$gray-med
+$footer-text:							$gray-med
+$footer-link:							$gray-med
+$footer-link-hover:				$primary
+$footer-border:						$line-color
+
+$m3c-bg:									$primary
+$m3c-border:							$secondary
+$m3c-text:								$accent
+$m3c-link:								$secondary
+$m3c-link-hover:					$secondary-dark
+$m3c-link-border:					#fff
+
+$opacity:									0.75
+$opacity-pc:							($opacity*100)			// DO NOT CHANGE, IS UPDATED BY LINE ABOVE
 
 
 
 
 // GRADIENTS
-.bg-gradient
-	background: $primary
-	+linear-gradient(color-stops($primary-light, $primary))	
+.bg-gradient-primary
+	/* For WebKit (Safari, Google Chrome etc) */
+	background: -webkit-gradient(linear, left top, left bottom, from($primary-light), to($primary))
+	/* For Mozilla/Gecko (Firefox etc) */
+	background: -moz-linear-gradient(top, $primary-light, $primary)
+	/* For Internet Explorer 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$primary-light, endColorstr=$primary)
+	/* For Internet Explorer 8 */
+	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$primary-light, endColorstr=$primary)
 
 .bg-gradient-reverse
-	background: $primary
-	+linear-gradient(color-stops((lighten($primary-light, 5%)), (lighten($primary, 5%))))
-
-.bg-gradient-dark
-	background: $primary
-	+linear-gradient(color-stops((darken($primary-light, 5%)), (darken($primary, 5%))))
-
-.bg-gradient-left
-	background: $primary
-	+linear-gradient(color-stops($primary, $primary-light), left)
+	/* For WebKit (Safari, Google Chrome etc) */
+	background: -webkit-gradient(linear, left top, left bottom, from($primary), to($primary-light))
+	/* For Mozilla/Gecko (Firefox etc) */
+	background: -moz-linear-gradient(top, $primary, $primary-light)
+	/* For Internet Explorer 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$primary, endColorstr=$primary-light)
+	/* For Internet Explorer 8 */
+	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$primary, endColorstr=$primary-light)
 
 .bg-gradient-secondary
-	background: $secondary
-	+linear-gradient(color-stops($secondary, $secondary-light), left)
+	/* For WebKit (Safari, Google Chrome etc) */
+	background: -webkit-gradient(linear, left top, left bottom, from($secondary-light), to($secondary))
+	/* For Mozilla/Gecko (Firefox etc) */
+	background: -moz-linear-gradient(top, $secondary-light, $secondary)
+	/* For Internet Explorer 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$secondary-light, endColorstr=$secondary)
+	/* For Internet Explorer 8 */
+	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$secondary-light, endColorstr=$secondary)
 
 
+// CURSOR HIGHLIGHTING
+h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::selection, p::selection, b::selection, a::selection
+	background: $text-highlight
+h1::-moz-selection, h2::-moz-selection, h3::-moz-selection, h4::-moz-selection, h5::-moz-selection, h6::-moz-selection, p::-moz-selection, b::-moz-selection, a::-moz-selection
+	background: $text-highlight
 
-
-
-// OLD STYLE TO BE UPDATED
-
-$primary-color: #000
-$secondary-color: lighten(adjust-hue($primary-color, 0%), +20)
-$accent-color: #c69a3d
-
-$line-color: #dadada
-$gray-dark: #222
-$gray-light: #efefef
-
-$image-slider-bg: #171717
-
-$nav_hover_bg_color: #fff
-$nav_hover_bg_opacity: .9
-
-$content_container_bg_color: $nav_hover_bg_color //#d3313a
-$content_container_bg_opacity: .5
-
-$container-height: 100%
-
-$scrollbar-width: 8px
-$scrollbar-handle-color: #656565
-$scrollbar-handle-up-color: #ddd
-$scrollbar-handle-up-hover-color: #555
-
-$scrollbar-handle-down-color: $scrollbar-handle-up-color
-$scrollbar-handle-down-hover-color: $scrollbar-handle-up-hover-color

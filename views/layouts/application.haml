@@ -1,36 +1,24 @@
-- @sitename = "Chase the Burn"
-- @title = ""
-- @subtitle = ""
-
+- @sitename = "Anna Knows"
 
 // MAIN NAVIGATION
-- @page1= "Home"
-- @page2= "About"
-- @page3= "Services"
-- @page4= "Gallery"
-- @page5= "Contact"
-//- @page6= "Testimonials"
-
-// ALT NAV
+- @link1 = ["Home", "/home"]
+- @link2 = ["About", "/about"]
+- @link3 = ["Services", "/services"]
+- @link4 = ["Gallery", "/gallery"]
+- @link5 = ["Contact", "/contact"]
 
 // FOOTER LINKS
-/ - @ftColA= "Resources"
-/ - @ftColA1= "link"
-/ - @ftColA2= "link"
-/ - @ftColA3= "link"
-/ - @ftColA4= "link"
-/ 
-/ - @ftColB= "Networking"
-/ - @ftColB1= "link"
-/ - @ftColB2= "link"
-/ - @ftColB3= "link"
-/ - @ftColB4= "link"
-/ 
-/ - @ftColC= "Services"
-/ - @ftColC1= "link"
-/ - @ftColC2= "link"
-/ - @ftColC3= "link"
-/ - @ftColC4= "link"
+- @linkA1 = ["Anna Jennings", "ssss"]
+- @linkA2 = ["(713) 398-8474", "ssss"]
+- @linkA3 = ["annaknows@ymail.com", "mailto:annaknows@ymail.com"]
+- @linkA4 = ["link name", "/path"]
+- @linkA5 = ["link name", "/path"]
+
+- @linkB1 = ["Facebook", "http://www.facebook.com/annaknowsfanpage"]
+- @linkB2 = ["Twitter", "http://twitter.com/annaknowscom"]
+- @linkB3 = ["LinkedIn", "http://www.linkedin.com/in/annaknows"]
+- @linkB4 = ["link name", "/path"]
+- @linkB5 = ["link name", "/path"]
 
 
 
@@ -39,208 +27,212 @@
   %head
     %title= @sitename + @title + @subtitle
 
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+
+    %link{:href => "/images/favicon.png", :rel => "icon"}
+    %link{:href => "/images/appleIcon-1.png", :rel => "apple-touch-icon"}/
+    %link{:href => "/images/appleIcon-2.png", :rel => "apple-touch-icon", :sizes => "72x72"}/
+    %link{:href => "/images/appleIcon-3.png", :rel => "apple-touch-icon", :sizes => "114x114"}/
+
+    %link{:href => "stylesheets/font-face.css", :media => "all", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "stylesheets/stylesheet.css", :media => "all", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "stylesheets/header.css", :media => "all", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "stylesheets/image-slider.css", :media => "all", :rel => "stylesheet", :type => "text/css"}
-    %link{:href => "stylesheets/triple-option.css", :media => "all", :rel => "stylesheet", :type => "text/css"}
-    %link{:href => "stylesheets/double-option.css", :media => "all", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "stylesheets/footer.css", :media => "all", :rel => "stylesheet", :type => "text/css"}
 
     %script{:type => "text/javascript", :src => "javascripts/respond.min.js"}
     %script{:type => "text/javascript", :src => "javascripts/jquery-1.5.min.js"}
     %script{:type => "text/javascript", :src => "javascripts/modernizr-1.6.min.js"}
     %script{:type => "text/javascript", :src => "javascripts/application.js"}
-    %script{:type => "text/javascript", :src => "javascripts/jquery.min.js"}
     %script{:type => "text/javascript", :src => "javascripts/jquery.hoverIntent.minified.js"}
+    %script{:type => "text/javascript", :src => "javascripts/jquery.nivo.slider.pack.js"}
+
+    // MOBILE FOOTER FIX
     :javascript
-      $(document).ready(function() {
+      //$(document).ready(function () {
+        if(
+          navigator.userAgent.match(/Android/i) ||
+          navigator.userAgent.match(/webOS/i) ||
+          navigator.userAgent.match(/iPhone/i) ||
+          navigator.userAgent.match(/iPod/i) ||
+          navigator.userAgent.match(/iPad/i)
+        ){
+          $('head').append('<link rel="stylesheet" href="/stylesheets/mobile.css" type="text/css" />');
+        }
+      //}
 
+    // INTERNET EXPLORER STYLE
+    /[if IE]
+      <link rel="stylesheet" type="text/css" href="/stylesheets/all-ie-only.css" />
 
-      	function megaHoverOver(){
-      		$(this).find(".sub").stop().fadeTo('fast', 1).show();
-
-      		//Calculate width of all ul's
-      		(function($) { 
-      			jQuery.fn.calcSubWidth = function() {
-      				rowWidth = 0;
-      				//Calculate row
-      				$(this).find("ul").each(function() {					
-      					rowWidth += $(this).width(); 
-      				});	
-      			};
-      		})(jQuery); 
-
-      		if ( $(this).find(".row").length > 0 ) { //If row exists...
-      			var biggestRow = 0;	
-      			//Calculate each row
-      			$(this).find(".row").each(function() {							   
-      				$(this).calcSubWidth();
-      				//Find biggest row
-      				if(rowWidth > biggestRow) {
-      					biggestRow = rowWidth;
-      				}
-      			});
-      			//Set width
-      			$(this).find(".sub").css({'width' :biggestRow});
-      			$(this).find(".row:last").css({'margin':'0'});
-
-      		} else { //If row does not exist...
-
-      			$(this).calcSubWidth();
-      			//Set Width
-      			$(this).find(".sub").css({'width' : rowWidth});
-
-      		}
-      	}
-
-      	function megaHoverOut(){ 
-      	  $(this).find(".sub").stop().fadeTo('fast', 0, function() {
-      		  $(this).hide(); 
-      	  });
-      	}
-
-
-      	var config = {    
-      		 sensitivity: 2, // number = sensitivity threshold (must be 1 or higher)    
-      		 interval: 100, // number = milliseconds for onMouseOver polling interval    
-      		 over: megaHoverOver, // function = onMouseOver callback (REQUIRED)    
-      		 timeout: 500, // number = milliseconds delay before onMouseOut    
-      		 out: megaHoverOut // function = onMouseOut callback (REQUIRED)    
-      	};
-
-      	$("ul#topnav li .sub").css({'opacity':'0'});
-      	$("ul#topnav li").hoverIntent(config);
-
-
-
+          
+    // NIVO SLIDER
+    :javascript
+      $(window).load(function() {
+          $('#slider').nivoSlider({
+                  effect:'fade', // Specify sets like: 'fold,fade,sliceDown'
+                  slices: 15, // For slice animations
+                  boxCols: 19, // For box animations
+                  boxRows: 8, // For box animations
+                  animSpeed: 600, // Slide transition speed
+                  pauseTime: 6000, // How long each slide will show
+                  startSlide: 0, // Set starting Slide (0 index)
+                  directionNav: true, // Next & Prev navigation
+                  directionNavHide: true, // Only show on hover
+                  controlNav: true, // 1,2,3... navigation
+                  controlNavThumbs: false, // Use thumbnails for Control Nav
+                  controlNavThumbsFromRel: false, // Use image rel for thumbs
+                  controlNavThumbsSearch: '.jpg', // Replace this with...
+                  controlNavThumbsReplace: '_thumb.jpg', // ...this in thumb Image src
+                  keyboardNav: true, // Use left & right arrows
+                  pauseOnHover: true, // Stop animation while hovering
+                  manualAdvance: false, // Force manual transitions
+                  captionOpacity: 1.0, // Universal caption opacity
+                  prevText: 'Back', // Prev directionNav text
+                  nextText: 'Next', // Next directionNav text
+                  beforeChange: function(){}, // Triggers before a slide transition
+                  afterChange: function(){}, // Triggers after a slide transition
+                  slideshowEnd: function(){}, // Triggers after all slides have been shown
+                  lastSlide: function(){}, // Triggers when last slide is shown
+                  afterLoad: function(){} // Triggers when slider has loaded
+              });
       });
-
+    
+    
+    // DROPDOWN MENU  
+    / :javascript
+    /   $(document).ready(function() {
+    / 
+    / 
+    /     function megaHoverOver(){
+    /       $(this).find(".sub").stop().fadeTo('fast', 1).show();
+    / 
+    /       //Calculate width of all ul's
+    /       (function($) { 
+    /         jQuery.fn.calcSubWidth = function() {
+    /           rowWidth = 0;
+    /           //Calculate row
+    /           $(this).find("ul").each(function() {          
+    /             rowWidth += $(this).width(); 
+    /           }); 
+    /         };
+    /       })(jQuery); 
+    / 
+    /       if ( $(this).find(".row").length > 0 ) { //If row exists...
+    /         var biggestRow = 0; 
+    /         //Calculate each row
+    /         $(this).find(".row").each(function() {                 
+    /           $(this).calcSubWidth();
+    /           //Find biggest row
+    /           if(rowWidth > biggestRow) {
+    /             biggestRow = rowWidth;
+    /           }
+    /         });
+    /         //Set width
+    /         $(this).find(".sub").css({'width' :biggestRow});
+    /         $(this).find(".row:last").css({'margin':'0'});
+    / 
+    /       } else { //If row does not exist...
+    / 
+    /         $(this).calcSubWidth();
+    /         //Set Width
+    /         $(this).find(".sub").css({'width' : rowWidth});
+    / 
+    /       }
+    /     }
+    / 
+    /     function megaHoverOut(){ 
+    /       $(this).find(".sub").stop().fadeTo('fast', 0, function() {
+    /         $(this).hide(); 
+    /       });
+    /     }
+    / 
+    / 
+    /     var config = {    
+    /        sensitivity: 2, // number = sensitivity threshold (must be 1 or higher)    
+    /        interval: 100, // number = milliseconds for onMouseOver polling interval    
+    /        over: megaHoverOver, // function = onMouseOver callback (REQUIRED)    
+    /        timeout: 00, // number = milliseconds delay before onMouseOut    
+    /        out: megaHoverOut // function = onMouseOut callback (REQUIRED)    
+    /     };
+    / 
+    /     $("ul#topnav li .sub").css({'opacity':'0'});
+    /     $("ul#topnav li").hoverIntent(config);
+    / 
+    / 
+    / 
+    /   });
 
 
   
 
 
   %body{:class => @body_class}
-    #top-banner
-      #mast-header
+    #header
+      .center
         #logo1
-          %a{:href => "/home"}
-            %img{:src => "/images/"+@sitename+"-logo.png", :alt => ""+@sitename+" Logo"}
-        #navigation
-          %ul#topnav
-            %li
-              %a#one.topnav{:href => "/"+@page1}
-                =@page1
-              / .sub
-              /   %ul
-              /     %li
-              /       %h2
-              /         %a{:href => "#"} Header
-              /     %li
-              /       %a{:href => "#"} Navigation Link
-              /     %li
-              /       %a{:href => "#"} Navigation Link
-              /     %li
-              /       %a{:href => "#"} Navigation Link
-              /     %li
-              /       %a{:href => "#"} Navigation Link
-              /     %li
-              /       %a{:href => "#"} Navigation Link
-            %li
-              %a#two.topnav{:href => "/"+@page2}
-                =@page2
-              // .sub
-              //   %ul
-              //     / %li
-              //     /   %h2
-              //     /     %a{:href => "#"} Header
-              //     %li
-              //       %a{:href => "/2-1"} Services
-              //     %li
-              //       %a{:href => "/2-2"} Levels of Investment
-              //     %li
-              //       %a{:href => "/2-3"} Advantages
-              //     %li
-              //       %a{:href => "/2-1"} Categories
-              //     %li
-              //       %a{:href => "#"} Financing
-              //     %li
-              //       %a{:href => "#"} Guide
-              //     %li
-              //       %a{:href => "#"} Selecting a Franchise
-              //     %li
-              //       %a{:href => "#"} FAQ
-            %li
-              %a#three.topnav{:href => "/"+@page3}
-                =@page3
-              // .sub
-              //   %ul
-              //     %li
-              //       %h2
-              //         %a{:href => "#"} Header
-              //     %li
-              //       %a{:href => "#"} Services
-              //     %li
-              //       %a{:href => "#"} Opportunities
-              //     %li
-              //       %a{:href => "#"} FAQ
-              //     %li
-              //       %a{:href => "#"} Navigation Link
-              //     %li
-              //       %a{:href => "#"} Navigation Link
-              //     %li
-              //       %a{:href => "#"} Navigation Link
-              //     %li
-              //       %a{:href => "#"} Navigation Link
-            %li
-              %a#four.topnav{:href => "/"+@page4}
-                =@page4
-            %li
-              %a#five.topnav{:href => "/"+@page5}
-                =@page5
-      // #alt-nav
-      //   %ul
-      //     %li
-      //       = link_to "Blog", "http://www.blogspot.com/", :class => "link"
-      //     %li
-      //       = link_to "twitter", "http://www.twitter.com/", :class => "link"
-      //     %li
-      //       = link_to "en Espa&ntilde;ol", "/espanol", :class => "link"
-            
-    .center-container
-      .content
-        = yield
-      #footer
-        &nbsp;
-        .column
-          %h4= @ftColA
-          %a{:href => "#"} 
-            = @ftColA1
-          %a{:href => "#"} 
-            = @ftColA2
-          %a{:href => "#"} 
-            = @ftColA3
-          %a{:href => "#"} 
-            = @ftColA4
-        .column
-          %h4= @ftColB
-          %a{:href => "#"} 
-            = @ftColB1
-          %a{:href => "#"} 
-            = @ftColB2
-          %a{:href => "#"} 
-            = @ftColB3
-          / %a{:href => "#"} 
-          /   = @ftColB4
-        / .column
-        /   %h4= @ftColC
-        /   %a{:href => "#"} 
-        /     = @ftColC1
-        /   %a{:href => "#"} 
-        /     = @ftColC2
-        /   %a{:href => "#"} 
-        /     = @ftColC3
-        /   %a{:href => "#"} 
-        /     = @ftColC4    
-      
+          %a{:href => @link1[1]}
+            %img{:src => "/images/logo.png", :alt => ""+@sitename+" Logo"}
+        %ul#topnav
+          %li
+            %a#one.topnav{:href => @link1[1]}
+              =@link1[0]
+          %li
+            %a#two.topnav{:href => @link2[1]}
+              =@link2[0]
+            .sub
+              %ul
+                / / %li
+                / /   %h2 Header
+                / %li
+                /   %a{:href => "#"} Navigation Link
+                / %li
+                /   %a{:href => "#"} Navigation Link
+                / %li
+                /   %a{:href => "#"} Navigation Link
+          %li
+            %a#three.topnav{:href => @link3[1]}
+              =@link3[0]
+          / %li
+          /   %a#four.topnav{:href => @link4[1]}
+          /     =@link4[0]
+          %li
+            %a#five.topnav{:href => @link5[1]}
+              =@link5[0]
+
+
+    .content
+      = yield
+    #footer
+      .center
+        .content
+          &nbsp;
+          .row
+            %p.logo-sm
+              %img{:src => "/images/logo-sm.png", :alt => @sitename+" Logo"}
+              %br
+              Anna Knows | Dedicated to connecting the consumer and business owner
+          .row
+            %p
+              =@linkA1[0]
+              =" | "
+              =@linkA2[0]
+              =" | "
+              %a{:href => @linkA3[1]}
+                =@linkA3[0]
+          .row
+            %p
+              %a{:href => @linkB1[1], :target => "_blank"} 
+                %img.icon{:src => "/images/facebook-color.png"}
+                =@linkB1[0]              
+              %a{:href => @linkB2[1], :target => "_blank"} 
+                %img.icon{:src => "/images/twitter-color.png"}
+                =@linkB2[0]
+              %a{:href => @linkB3[1], :target => "_blank"} 
+                %img.icon{:src => "/images/linkedin-color.png"}
+                =@linkB3[0]
+              
+                  
     .m3c-bar
       .copyright
         :markdown
@@ -248,5 +240,5 @@
       .powered-by
         :markdown
           Powered by [Media 3 Creative](http://media3creative.com/)
-
+          
           
